@@ -1,0 +1,48 @@
+MINIESPECIFICACIÓN DEL SISTEMA DE FACTURACIÓN Y ANÁLISIS DE VENTAS DE TRAJES
+
+1.  DESCRIPCIÓN DEL PROBLEMA
+    El sistema debe permitir a un almacén de venta de trajes registrar las compras de clientes, calcular descuentos basados en la cantidad de trajes comprados y almacenar la información relevante de cada transacción para un posterior análisis.
+
+2.  ENTRADAS
+    * `nombre_cliente`: Cadena de texto (nombre del cliente).
+    * `apellido_cliente`: Cadena de texto (apellido del cliente).
+    * `cantidad_trajes`: Número entero positivo (cantidad de trajes a comprar).
+    * `precio_unitario`: Número real positivo (precio de un solo traje).
+    * `respuesta_continuar`: Carácter ('s' o 'n') para decidir si continuar registrando clientes.
+
+3.  SALIDAS
+    * `subtotal`: Número real (cantidad antes de aplicar descuento).
+    * `monto_descuento`: Número real (cantidad descontada).
+    * `total_a_pagar`: Número real (cantidad final a pagar por el cliente).
+    * Mensajes informativos al usuario sobre los cálculos y el resumen final.
+    * `nombres_clientes`: Arreglo de cadenas con los nombres de todos los clientes registrados.
+    * `apellidos_clientes`: Arreglo de cadenas con los apellidos de todos los clientes registrados.
+    * `cantidades_trajes`: Arreglo de enteros con las cantidades de trajes comprados por cada cliente.
+    * `precios_unitarios`: Arreglo de números reales con los precios unitarios de las ventas de cada cliente.
+    * `totales_pagar`: Arreglo de números reales con los totales a pagar de cada cliente.
+
+4.  PROCESO
+    El programa operará en un ciclo `while` permitiendo el registro de múltiples clientes hasta que el usuario decida terminar.
+    Por cada cliente:
+    a. Se solicitarán nombre, apellido, cantidad de trajes y precio unitario.
+    b. Se calculará el subtotal (`cantidad_trajes * precio_unitario`).
+    c. Se determinará el porcentaje de descuento según la `cantidad_trajes`:
+        * 1 traje: 10%
+        * 2 trajes: 20%
+        * 3 trajes: 40%
+        * Más de 3 trajes: 60%
+    d. Se calculará el `monto_descuento` (`subtotal * porcentaje_descuento`).
+    e. Se calculará el `total_a_pagar` (`subtotal - monto_descuento`).
+    f. Se mostrarán los resultados de la transacción actual.
+    g. Los datos del cliente (nombre, apellido, cantidad, precio unitario, total a pagar) se almacenarán en arreglos unidimensionales correspondientes, manteniendo la correspondencia por índice.
+    Al finalizar el ciclo, se mostrará un resumen de todas las ventas registradas.
+
+5.  PRECONDICIONES
+    * El usuario ingresará valores numéricos válidos para la cantidad de trajes y el precio unitario.
+    * La cantidad de trajes será un número entero positivo.
+    * El precio unitario será un número real positivo.
+
+6.  POSTCONDICIONES
+    * El sistema habrá calculado correctamente los subtotales, descuentos y totales a pagar para cada transacción.
+    * Todos los datos de las transacciones (nombre, apellido, cantidad, precio unitario, total a pagar) estarán almacenados coherentemente en los arreglos unidimensionales.
+    * Se habrá presentado un resumen detallado de todas las ventas al finalizar el ingreso de datos.
